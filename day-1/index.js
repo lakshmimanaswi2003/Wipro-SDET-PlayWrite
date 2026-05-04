@@ -24,3 +24,22 @@ console.log("a == b:", a == b); // F === Strict equality (checks value and type)
 console.log("a != b:", a != b); // T
 console.log("a >= b:", a >= b); // F
 console.log("a <= b:", a <= b); // T
+
+//object
+let obj ={
+    name : "manaswi",
+    city : "New york",
+    age  :  30
+}
+console.log(obj);
+console.log(obj.name);
+console.log(obj.city);
+console.log(obj.age);
+
+
+//functions
+function add(a,b) {
+    return a+b;
+}
+console.log(add(5,5));
+
