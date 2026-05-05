@@ -25,3 +25,20 @@ setTimeout(() => {
 //     console.log("Checking for new data...");
  //}, 3000);
  //same as setTimeout() function it will repete again and again at particular time interval
+
+
+
+ //********************************** fetching API and modifying it*******************
+ fetch("https://jsonplaceholder.typicode.com/todos")
+.then(data=>data.json())
+.then(data=>data.filter(d=>d.id%2===0))
+.then(data=>data.map(d=>d.title="manaswi" + d.title ))
+.then(data=>{console.log(data);})
+.catch(data=>{console.error(data);});
+
+ 
+ //-> by using this we are doing the API call to get todo data
+ //-> here the first then is converting the fetched data into json 
+ //-> the second then is filtering the id 
+ //-> the third then is modifying the title by adding "manaswi" in front of the title by using map function
+ //-> the fourth then is going to pront the data
