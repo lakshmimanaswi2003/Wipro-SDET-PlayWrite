@@ -36,9 +36,11 @@ setTimeout(() => {
 .then(data=>{console.log(data);})
 .catch(data=>{console.error(data);});
 
- 
+ //-> here fetch function is going to send the request to the API and we will get the resolve/reject
  //-> by using this we are doing the API call to get todo data
  //-> here the first then is converting the fetched data into json 
  //-> the second then is filtering the id 
  //-> the third then is modifying the title by adding "manaswi" in front of the title by using map function
  //-> the fourth then is going to pront the data
+
+ 
