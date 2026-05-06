@@ -1,0 +1,51 @@
+//************************************asynchrnonus api modifying ******************************
+
+->here we have to use async function.
+
+-> here we are going to use await keyword.
+
+->the difference of await and .then() is that in await we are going to pause the cursor until the data is fetched.
+   where as in then we are following pipe line metod like (we have to execute this after this line.)
+
+-> await is used for future promises.
+
+//************************************settimeout and setinterval and clearing them ******************
+
+->clearTimeout() is used to clear the settimeout it will not print even once.
+
+->clearInterval() is used to clear the setInterval it will not print even once.
+//*********************************** oops concepts*******************************
+-> constructor is class method.
+
+-> we are going to access a variable in method using "this" keyword.
+
+
+
+//****************************************encapsulation ****************************
+
+->encapculation is nothing but hidding or protecting the data by using access specifiers 
+
+-> there are two types of access specifiers
+    * Public
+    * private
+
+-> we are applying the access specifiers on the variables and methods like this #balance,  #method().
+
+
+//*****************************************inheritance ********************************
+
+->inheritance is nothing but accessing the variables and methods from parent class.
+
+->we are doing inheritance by using "extends" keyword
+
+->super key wrod is used to call the constructor and methods from the parent class
+
+
+//**************************************** polymorphism*****************
+
+->here we are using the same method for different operations
+
+
+//******************************************abstraction ***********************
+
+-> abstraction is nothing but hidding the implementation and displaying only the output.
