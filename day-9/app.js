@@ -1,4 +1,4 @@
- const axios = require('axios'); //importing
+// const axios = require('axios'); // import
 
 async function getAstroData() {
     const URL = "http://api.open-notify.org/astros.json";
@@ -15,7 +15,7 @@ async function getAstroData() {
     astroList.innerHTML = peopleInSpace.map((name, index) => `<li>${name} (${craftNames[index]})</li>`).join('');
     document.getElementById('numberOfPeople').textContent = numberOfPeople;
 }
-*/
+
 // getAstroData().then(data => console.log(data)).catch(err => console.error(err));
 //     .then(data => console.log(data))
 //     .catch(err => console.error(err))
