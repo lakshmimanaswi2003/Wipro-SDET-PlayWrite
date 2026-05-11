@@ -52,19 +52,21 @@ console.log("Array:", arr);
 // let outpu2 = identity<boolean>(true);
 
 // console.log(output, outpu1, outpu2);
+/*
 
-// Generic interface for a bag that can hold any type of content
-// interface Bag<T> {
-//     content: T;
-// }
+ Generic interface for a bag that can hold any type of content
+ interface Bag<T> {
+     content: T;
+ }
 
-// const stringBag: Bag<string> = {content: "Apple"};
-// const numberBag: Bag<number> = {content: 5};
+ const stringBag: Bag<string> = {content: "Apple"};
+ const numberBag: Bag<number> = {content: 5};
 
-// console.log(stringBag, numberBag);
+ console.log(stringBag, numberBag);
+*/
 /*
 class Storage<T> {
-    private items: T[] = [];
+     items: T[] = [];
 
     addItems(item: T): void { // no return type
         this.items.push(item);
@@ -81,12 +83,14 @@ names.addItems("Arush");
 names.addItems("Rohan");
 
 console.log(names.getItem(0), names.getItem(1), names.getItem(2), names.getItem(3)); // undefined for index 
-
+console.log(names.items);
 
 */
+
 interface HasLength {
     length: number;
 }
+
 
 // generics with contraints | extends keyword
 function logLength<T extends HasLength>(arg: T): void { // T -> property .length --> string, arrays
@@ -95,7 +99,7 @@ function logLength<T extends HasLength>(arg: T): void { // T -> property .length
 
 logLength("Aaryan"); // string --> length
 logLength([1, 2, 3]); // array --> length
-// logLength(10); // number --> X
+logLength(10); // number --> X
 
 //************************************************practice interface*************************************
 /*
@@ -131,6 +135,7 @@ console.log(manager,associate)
 
 
 //**********************array and tuple ******************************
+/*
 //array
 let arr: number[] =[1,2,3]
 console.log(arr);
@@ -141,3 +146,27 @@ console.log(tup);
 
 let arr1:(number | string)[]=[1,"henry"];
 console.log(arr1);
+*/
+
+
+//******************************generics function basics*********************************
+/*
+function identity<T>(arg:T):T{
+    return arg;
+}
+    let output1 =identity<string>("hello");
+    let output2 = identity<number>(30);
+
+console.log(output1,output2);
+
+*/
+/*
+interface bag<T>{
+    content:T
+}
+
+const output1:bag<string>={content:"apple"};
+const output2:bag<number>={content:10};
+
+console.log(output1,output2);
+*/
