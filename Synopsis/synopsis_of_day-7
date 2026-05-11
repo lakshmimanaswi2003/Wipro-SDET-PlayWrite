@@ -1,0 +1,19 @@
+//************************************hoisting **********************************
+console.log(greet);
+var greet="hello";
+console.log(greet);
+
+// hoisting->> hoisting is nothing but it will move the variable to the top of the code even, you where initialize -
+// even, you where initialize that at last .
+// here in the above code we where printing the greet variable before assigning the value to it
+// even we are doing that, it hoist the variable greet to the top of the code and assign undefined -
+//so we will get undefined as output at first and second we assign the value to the greet then again it will print the value hello 
+
+
+console.log(greet);
+let greet="hello";
+console.log(greet);
+
+//here we are using 'let' for the variable here it hoist the variable at the top but it will not assign the variable 
+// as undefined so it prints some errors at first and in the second output it will print the value
+//The same thing will happen with the 'const' also
