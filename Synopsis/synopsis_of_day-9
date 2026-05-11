@@ -1,0 +1,78 @@
+//***********************************************interface and enumerations in typescript*****************************
+
+
+->> interface is used to define only the decleration part.
+->>enumeration is used to define a set of named constant values that is nothing but casesencitive values
+
+
+interface hello{
+    greet1:string;
+    name:string;
+    salary:number;
+    role:Role;//enumerate
+}
+interface hello{//merging the email variable into the hello interface 
+    email:string;
+}
+enum Role {
+    associate="ASSOCIATE",
+    manager="MANAGER"
+}
+const manager:  hello={//here we are assigning the hello interface like this because we are directly saying that the structure in the user must be equal to the interface class otherwise it will give you the error.
+    greet1:"hello",
+    name:"henry",
+    salary:50000,
+    role:Role.manager,
+    email:"123@gmail.com"
+}
+const associate: hello={
+    greet1:"hi",
+    name:"mena",
+    salary:40000,
+    role:Role.associate,//accessing the enum values
+    email:"456@gmail.com"
+}
+console.log(manager,associate)
+
+
+//*************************************************difference between array and tuple in typescript************ 
+
+//array
+
+let arr: number[] =[1,2,3];
+console.log(arr);
+
+let arr1:(number | string)[]=[1,"henry"];//in this array we can add numbers and also strings aswell
+console.log(arr1);
+
+//tuple
+
+let tup:[number,string]=[10,"henry"];
+console.log(tuple);
+
+->> here in array we can store the data with different length with differnet order
+->>in tupel we have to store the data in a structured way
+
+
+//********************************************* genericfunction basics************************
+function identity<T>(arg:T):T{
+    return arg;
+}
+let output1=identity<number>(10);
+let output2=identity<string>("hello");
+console.log(output1,output2);
+
+//->>here the 'T' is going to store the datatype of the function here we are declearing the datatype dinamically
+
+
+//*****************************************Generic interface *********************************
+
+interface bag<T>{
+    content:T
+}
+
+const output1:bag<string>={content:"apple"};
+const output2:bag<number>={content:10};
+
+->> here 'T' is a datatype and also content:string that means in the interface it is declearing the structure
+
