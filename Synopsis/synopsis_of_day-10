@@ -1,0 +1,207 @@
+//**************************************user defined type in typescript******************************
+
+
+enum Role {
+    Admin = "Admin",
+    User = "User",
+    SuperUser = "SuperUser"
+}
+enum Priviledge {
+    Read = "Read",
+    Write = "Write",
+    Delete = "Delete"
+}
+
+//user defined datatypes
+type Emp = { id: number | string, name: string, role: Role }; // keyof -> "id" | "name" | "role"
+type Admin = { priviledges: Priviledge[] };
+type SuperUser = Emp & Admin;// '&' is used to merge the two types into one
+
+let list: (Emp | Admin | SuperUser)[] = []; 
+function addEmp(emp: Emp | Admin | SuperUser): void {
+    list.push(emp);
+}
+
+function getEmp(index: number) {
+    console.log(list[index]);
+}
+
+addEmp({ id: 10, name: "Aaryan", role: Role.User });
+addEmp({ id: "xyz", name: "Arush", role: Role.User });
+addEmp({ id: 20, name: "Aman", role: Role.Admin, priviledges: [Priviledge.Read , Priviledge.Write]});//superuser
+getEmp(0);
+getEmp(1);
+getEmp(2);
+
+
+Explination:
+
+->>> here we are using enums 
+->>> here in the typescript we can create the user-defined datatypes as i mensioned above
+->>> we can create user-defined datatypes by using 'type' keyword
+
+
+
+
+//**********************************keyof, typeof***************************************
+
+const points = {x: 10, y: 20};
+type PointKeys = keyof typeof points; // Result "x" | "y"
+
+function getProperty<T, K extends keyof T>(obj: T, key: K) { // keyof "id" | "username" | "email"
+    return obj[key];
+}
+
+const user = { id: 1, username: "hellion", email: "xyz@example.com" }
+console.log(getProperty(user, "email"));
+console.log(getProperty(user, "username"));
+console.log(getProperty(user, "id"));
+
+
+//Explination:
+
+->>> here 'keyof' is used to get only the keys from the object
+->>> here 'typeof' is used to get the type 
+->>> here 'k extends keyof t' is nothing but key should must be equal to the keys in the object T
+->>> here the object is user and the key is email for the first line of console.
+
+
+//********************************************omit**************************************
+
+interface User {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+}
+
+type UserPreview = Omit<User, "email" | "password">
+
+const preview: UserPreview = {
+    name: "Aryan",
+    id: "xyz"
+}
+
+//preview.password;
+console.log(preview.name);
+
+
+//Explination:
+
+->>>omit is used to stop exposint the important contant like 'email and password' to the front 
+->>> if we try to print the password or email it will throw an error
+
+
+
+
+//*******************************************partial********************************
+ 
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    age: number;
+    address: {
+        city: string;
+        state: string;
+        country: string;
+        zip: string;
+    },
+    skills: Object;
+}
+
+const u1: User = {
+    id: 0,
+    name: "Aryan",
+    email: "",
+    age: 0,
+    address: {
+        city: "",
+        state: "",
+        country: "",
+        zip: ""
+    },
+    skills: {
+        java: {
+            spring: "low"
+        }
+    }
+}
+
+function updateUser(existingUser: User, updates: Partial<Omit<User, "id">>) {// we can also write function update(exe: user, update partial<user>){}
+    return { ...existingUser, ...updates }
+}
+const updatedUser = updateUser(u1, {email: "xyz@gmail.com", age: 23})
+console.log(updatedUser);
+
+Explination:
+
+->>> this partial<> is used to modify the data 
+->>> with out using the partial<> we have to call the whole object to modify single variable in it but by using partial we can access the required data with out calling the whole data
+
+
+
+//********************************************************readonly and readonly array****************************
+
+interface task{
+    readonly title:string;
+    age:number;
+}
+const task1:task={
+    title:"Home work",
+    age:30
+}
+const task2:task ={
+    title:"Home work",// here we can't able to change the title
+    age :40//we can change the age becaues we didn't assign readonly to it
+}
+
+const task3: Readonly<task>={
+    title :"Home work",
+    age: 30
+}
+console.log(task1.title);
+task1.title="new work"//task1.title="new work";// it gives an error because in the above we assign the readonly to the title
+task1.age=50;
+console.log(task1.age);
+//task3.age=50; // this will give an error because the object itself is readonly
+
+->>> here the task is the type for all the objects.
+
+
+
+
+//***********************************************express *****************
+const express = require('express');//importing the frame work
+const app = express();//express object is stored in app
+const PORT = 3000;
+
+app.get('/', (req, res) => { // GET Endpoint
+    res.json({ message: 'Hello World' });
+});
+
+app.get('/:name', (req, res) => { // GET Endpoint here we can write what ever name after '/'
+    const name = req.params.name;
+    
+    res.json({ message: `Hello ${name}` });
+});
+
+app.listen(PORT, () => console.log(`App is running on PORT:${PORT}`))
+
+
+
+->>> here we are importing the express library
+->>> required('express') is used to lode the package
+->>>we are storing it in the express variable
+->>> by using the express we can create servers
+->> this is the port number your server will run
+->>> port is like a door where the user can access the server
+->>app.get() ->defines a GET API endpoint
+->>'/' -> means root URL
+->>req -> request object (data coming from client)
+->>res -> response object (what you send back)
+->>req.params -> contains all URL parameters
+->>name -> gets value from URL
+->> app.listen is used to start the server
+->> port tells where to run
+->> the function will print after the server where start
