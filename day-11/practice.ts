@@ -117,12 +117,20 @@ console.log(data);
 
 
 //10***********************************************************************************
+/*
+10. Mapped Types with Key Remapping
+Scenario: You have a data model and need to generate a type for an API response that "prefixes" all the keys.
+Task:
+Define an interface Car { make: string; model: string; }.
+Create a mapped type ApiResponse<T> that iterates through keys of T and renames them to be uppercase and prefixed with DATA_ (e.g., make becomes DATA_MAKE).
+*/
+/*
 interface car{
     make: string;
     model: string;
 }
 type Apiresponse<T>={
-    [k in keyof T as `DATA_${Uppercase<string & k>}`]:T[k];
+    [k in keyof T as `DATA_${Uppercase<string & k>}`]:T[k];// here it is going to change the keyvalues and those values we are assigning the same datatype by using :T[K]
 };
 type carapiresponse=Apiresponse<car>;
 const carmodel:carapiresponse={
@@ -130,3 +138,28 @@ const carmodel:carapiresponse={
     DATA_MODEL:"venue"
 };
 console.log(carmodel);
+
+*/
+
+
+//6**************************************************************************************
+/*
+6. Conditional Types & the infer Keyword
+Scenario: You are working with a library that returns data wrapped in a Promise, and you need to extract the underlying type.
+Task: Create a utility type UnwrapPromise<T>. It should check if T is a Promise. If it is, use the infer keyword to return the type the promise resolves to; otherwise, return T itself.
+*/
+
+
+type UnwrapPromise<T>=T extends Promise<infer U>? U : T;//infer U is nothing but we were storing the datatype in U
+type wrap1 = UnwrapPromise<Promise<string>>;
+type wrap2 = UnwrapPromise<Promise<number>>;
+type wrap3 = UnwrapPromise<string>;
+
+
+let v1: wrap1 = "manaswi";
+let v2: wrap2 = 100;
+let v3: wrap3 = "hurray!!!";
+
+console.log(v1);
+console.log(v2);
+console.log(v3);
