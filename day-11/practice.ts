@@ -116,3 +116,17 @@ console.log(data);
 */
 
 
+//10***********************************************************************************
+interface car{
+    make: string;
+    model: string;
+}
+type Apiresponse<T>={
+    [k in keyof T as `DATA_${Uppercase<string & k>}`]:T[k];
+};
+type carapiresponse=Apiresponse<car>;
+const carmodel:carapiresponse={
+    DATA_MAKE:"Hyundai",
+    DATA_MODEL:"venue"
+};
+console.log(carmodel);
