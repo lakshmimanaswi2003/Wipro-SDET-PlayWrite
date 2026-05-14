@@ -1,0 +1,46 @@
+//***************************************************playwright********************************** 
+
+->>> we were using this playwright for mobiletesting, Apitesting
+
+->>> playwright uses cross-browser testing
+
+->>> It support parallisam
+
+->>> with the help of the boundary value analysis we can able to pickup the Range.
+
+->>> it supports chrome, firefox, webkit browers to run automatically.
+
+
+//import{test,expect} from '@playwright/test'
+
+->>> here the '@playwright/test' is a playwright testing library
+
+->>> here we are importing test and expect from the playwright testing library
+
+->>> test is for testcases and expect is to check results.
+
+//test('check title',async({page})=>{
+
+->>> here the 'check title' is the name of the test.
+
+->>> here we are using async function to use await inside the function.
+
+->>> here the page is the browser.
+
+//await page.goto("https://www.techxincorporation.com/");
+
+->>> here the '.goto()' is used to open url.
+
+->> here we are using 'await' because it will might move to the nextline without loding the page.
+
+//const consultBtn = page.getByRole("link", { name: /Request/ }).nth(1);
+
+->>> here getByRole() is used to find the 'request' name in the link and gives the .nth(1) the request because here we are having two request.
+
+//await page.consultBtn.click()
+
+->>> it will wait for some time because click action takes time.
+
+//expect(page.url()).toBe("https://www.techxincorporation.com/contact");
+
+->>> if the expect value is equal to toBe value then the testcase will pass other wise it will gives us error.
