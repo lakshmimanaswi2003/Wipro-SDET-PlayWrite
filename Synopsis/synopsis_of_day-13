@@ -1,0 +1,14 @@
+->>>TO run the playwright in the new folder the command is 
+    -npm init playwright@latest
+
+->>>we have to install all the three browers again in the newfolder in default chrome will run
+    -npm playwright install --force// it will forcefully install the webkit as wellas firefox
+
+->>>to install path,express,dotenv,body-parser
+    -npm install path
+    -npm install express
+    -npm install dotenv
+    -npm install body-parser
+
+
+
