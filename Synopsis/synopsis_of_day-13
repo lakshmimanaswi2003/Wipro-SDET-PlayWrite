@@ -10,5 +10,31 @@
     -npm install dotenv
     -npm install body-parser
 
+//////javascript express
+->>>app.use(express.json())
+    this syntax tells the server how to handel the json data in express.
 
 
+->>>app.use(express.urlencode({expanded:true}))
+    this is used to read the data that were came form the html forms
+
+  
+->>>app.use(express.static('public'))
+    by using this syntax we can access the html files under the public folder by express server
+
+  
+->>>app.get('/',async(req,res)=>{
+      res.SendFile(path.join(__dirname,"public/index.html"))
+      });
+    this line is used to join the path of the current file and the file index.html file which is in the public folder.
+    and also we are sending the html file to the client that's why we used sendfile and we were using
+    current dirname because to understand from which basefolder we are using the code to send the client
+    so that we were joining the html and the current folder.
+
+->>>app.get('/:login',async (req,res)=>{
+    res.SendFile(path.join(__dirname,"public/login.html"))});
+
+
+->>>app.post('/logincredientials',(req,res)=>{
+      const {username,password}=req.body});
+-this line sends the request from the client back to the server and we are requesting the credentials that were in the body tag in the html
