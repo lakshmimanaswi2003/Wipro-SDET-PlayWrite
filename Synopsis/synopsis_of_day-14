@@ -1,0 +1,64 @@
+->> if we store a file with the extension .mjs then it is nothing but we are using 'ES modules'.
+->> in this 'ES modules' we have to use import and export
+
+function sum(a,b){
+    return a+b;
+}
+function sub(a,b){
+    return a-b;
+}
+export default sum;
+//export default sum; => it will export the sum by default and we can able to call it with any name like 'add' etc it still reffers to the sum.
+//export {sum,sub}; => it is going to export the two functions. here we have to use the exact names like 'sum' and 'sub'.
+//module.exports ={sum,sub}=> this is used only in .js file not in .mjs file we can import it like const {sum,sub}=require('./op.mjs')
+
+->> this is in the file 'op.mjs'.
+->> we are exporting this to 'cal.mjs' file.
+
+// const { sum, sub } = require('./op.mjs')
+
+import sum from "./op.mjs";
+import path from "path";// here we are importing the path
+
+
+function calculator(a, b) {
+    const s = sum(a, b);
+    // const su = sub(a, b);
+
+    console.log(s);
+    
+}
+
+calculator(2, 3)
+
+console.log(path.resolve(process.cwd()));//here we are printing the path in the terminal
+//here path.resolve is used to convert the path to absolute path
+//here process.cwd() is nothing but current directory
+//path.resolve(process.cwd()) the meaning it is giving the absolute path of the current directory.
+
+
+// require(''), module.exports
+// .mjs -> import, export 
+
+
+//
+/ await btn.screenshot({ type: 'png', path: 'btn.png'  });
+    await page.screenshot({ fullPage: true, path: 'full-page.png' })//the screenshot is stored in the 'full-page.png'
+
+->> this syntax were used to take the screenshot of the webpage and store the screenshot in the path folder 'btn.path'
+
+
+//
+webServer: {
+     //cwd: `${path.resolve(process.cwd())}/webapp`,
+     cwd :"webapp",
+     command: 'node index.js',
+     url: 'http://localhost:3000',
+     reuseExistingServer: !process.env.CI,
+    },
+});
+
+->>> we are modifying this in the playwrightConfig.config.js 
+->>> here we are assigning cwd:"webapp" // this is nothing but we are assigning the 'webapp' folder for the current directory 'cwd'.
+->>> the command that the terminal will automatically run to get the port is 'node index.js'
+->> finally so by modifying ths webserver the server will atomatically starts with out manualy.
