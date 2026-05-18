@@ -1,0 +1,29 @@
+//******************************************************************************************
+->>>command : npx playwright codegen "link"
+->> by using this codegen it will automatically relocated to the webpage 
+    and it will wright the code automatically wy the clicking on the locator in the webpage
+
+->>>command : npx playwright test --ui
+->> this is used to test the ui of the testcase
+
+->>command : npx playwright test --debug
+->> this is used to debug the testcases.
+
+
+//****************************************Anotations **************************************
+->>.skip() is used to skip the test intensionally.
+
+->>.fixme() in fixme also we are skiping the test but actually the testcase were broken.
+in terminal for fixme it shows skipped as it shown in skip anotation the different 
+output will get on the html page that the test were broken.
+
+->>.only() this only anotation is used to test only one test case.
+
+->>.step() this anotation is used to group the actions togeather.
+
+->>.slow() it is used to slow the testing triple times than the actual timming.
+
+->>setTimeout(1000) is used to set the time on how much delay we want.
+
+->>.fail() anotation is used to fail the test if really the test were fail then it shows that the testcase were passed but acutally it was failed.
+
