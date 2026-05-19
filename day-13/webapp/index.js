@@ -1,6 +1,6 @@
-const express = require('express');
-const path = require('path');
-require('dotenv').config();
+const express = require('express');//it is used to import the data
+const path = require('path');//it is used to import the path
+require('dotenv').config();//it is used to include the data from the .env file
 
 const PORT = process.env.PORT;
 const app = express();

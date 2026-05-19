@@ -52,7 +52,7 @@ test.fixme('test', async ({ page }) => {
 });
 
 //test.slow(); // triple the timeout 30 seconds
-
+/*
 
 import { test, expect } from '@playwright/test';
 
@@ -66,3 +66,4 @@ test('test', async ({ page }) => {
   await page.locator('.rush-component > .a-link-normal').first().click();
   const page1 = await page1Promise;
 });
+*/

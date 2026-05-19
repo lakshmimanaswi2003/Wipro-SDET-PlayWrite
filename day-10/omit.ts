@@ -12,5 +12,5 @@ const preview: UserPreview = {
     id: "xyz"
 }
 
-preview.password;
-preview.name;
+//preview.password;
+console.log(preview.name);

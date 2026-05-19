@@ -4,7 +4,7 @@ console.log(name);
 */
 /*
 
-let name:"string"="henry";
+let name:string="henry";
 console.log(name);
 */
 

@@ -29,7 +29,7 @@ const u1: User = {
         }
     }
 }
-
+/*
 type DeepPartial<T> = {
     [P in keyof T]?: T[P] extends (infer U)[]
     ? DeepPartial<U>[]
@@ -46,7 +46,7 @@ function deepUpdate(target: any, source: any) {
     }
     return { ...target, ...source };
 }
-
+*/
 function updateUser(existingUser: User, updates: Partial<Omit<User, "id">>) {
     return { ...existingUser, ...updates }
 }

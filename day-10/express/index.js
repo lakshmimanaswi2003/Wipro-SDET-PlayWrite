@@ -1,7 +1,8 @@
+/*
 const express = require('express');//importing the frame work
 
-const app = express();
-const PORT = 5000;
+const app = express();//intializing the express
+const PORT = 3000;
 
 app.get('/', (req, res) => { // GET Endpoint
     res.json({ message: 'Hello World' });
@@ -13,3 +14,14 @@ app.get('/:name', (req, res) => { // GET Endpoint
 });
 
 app.listen(PORT, () => console.log(`App is running on PORT:${PORT}`))
+*/
+
+
+const express=require('express');
+const app=express();
+const PORT=3000;
+app.get('/:name',(req,res)=>{
+    const name=req.params.name;
+    res.json({message: `hello ${name}`});
+});
+app.listen(PORT,()=>console.log(`your port is running ${PORT}`));

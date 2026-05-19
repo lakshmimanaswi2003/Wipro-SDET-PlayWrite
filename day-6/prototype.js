@@ -14,3 +14,4 @@ console.log(Object.person.prototype(greet)===person.prototype);
 //here we are going to create object to person function and we will call the prototype function by using that object.
 //object.person.prototype prints the object of the parent class that is prototype.person.
 // so that here we are comparing that the object.prototype.person is equal to the prototype.person if it is equal then it return true.
+//here we can callthe sayhi() as a method.
