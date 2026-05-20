@@ -1,0 +1,45 @@
+//->>>test.describe is used to group the similar testcases into one 
+for ex:
+   if we are testing the login then the testcases that going to test the login will comes under one group.
+->>> benfit of this is... it makes the code well structured
+
+
+//->>>page.expect(mes).toHaveTitle(new RegExp(message,'i'));
+->>> here we are using the RegExp to match patterns in text insted of searching for the exact string.
+->>> here 'i' is nothing but it definec case-insencitive. if we didn't use 'i' in the syntax then the 
+     title should be case-sensitive
+for ex:
+     if the title is 'Login' and if we were giving 'login' then it will give error if we didn't use 'i'
+
+
+
+//->>> soft assertions:
+->>> by using 'expect.soft()' we can move to the next line when the assertion were failed.
+     if we didn't use soft assertions then it will not move to the next assertion it breakout the testcase.
+
+
+
+//->>> pole assertions:
+->>> pole assertions is nothing but it will run the function until expected condition were met.
+
+
+//*******************in auth.spec.js file***********
+
+//->>>" test.describe.configure({mode:'serial'})" 
+->>> here test.describe.configure is used to run the testcases in serial form because 
+    the playwright run the testcases parllely
+->>> here in this case if we login before signup it  then it will gives an error. so we have to move in a serial way.
+
+
+//->>>await page.context().storageState({ path: 'playwright/.auth/user.json' });
+->>> by using this we can able to store all the cookies and local storage.
+->>> so by using this we no need to login again and again.
+->>>here in path:
+       playwright-->> folder name
+       .auth->>> subfolder name
+       user.json->>> file name.
+->>> here 'context()' is nothing but it gives us browser test.
+->>> storageState is used to convert the data into json and save it to a file.
+
+
+
