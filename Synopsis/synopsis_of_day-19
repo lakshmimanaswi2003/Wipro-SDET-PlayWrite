@@ -1,0 +1,25 @@
+//***********************************************************
+//->>>fixtures:
+            fixtures provide reusable testcases like functions
+->>test("", async({page})=>{
+    await page.goto("link");
+    //close popups
+})
+->>test("", async({page})=>{
+    await page.goto("link");
+    //close popups
+})
+->>here we are calling the page again and again and closing the popups and cookies etc.. again and again 
+   will cause messy.
+->>so to clean this we are going to use fixtures.
+->> here we can write our own logic. where as 'page' is the default object of playwright.
+->>fixtures are the userdefined object to handel cookies,popups,adds etc.
+
+
+
+//***********************************************************************
+//->>>Page Object Mode(POM)
+->> the 'POM' is nothing but we are giving the functions in a 'js' file and we are improting
+    those functions to the 'spec.js' file to avoide messy in the 'spec.js' file
+    
+
