@@ -3,7 +3,7 @@ const b = [3, 4, 5];
  
 let c = [...a, ...b, 10];
  
-const obj = {
+const obj1 = {
     name: "Aaryan"
 }
 const obj3 = {
